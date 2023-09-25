@@ -24,13 +24,15 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import PostScreen from "./dashboardpages/post";
 import Singlepost from "./dashboardpages/singlePost";
 import AddProject from "./dashboardpages/addPost";
+import CreateIcon from "@mui/icons-material/Create";
+import CreateQuiz from "./dashboardpages/createQuizz";
 
 const drawerWidth = 240;
 
 function DashboardPage(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
- const [pagesArr, setPagesArr] = React.useState([
+  const [pagesArr, setPagesArr] = React.useState([
     {
       name: "Message",
       route: "message",
@@ -45,6 +47,11 @@ function DashboardPage(props) {
       name: "Posts",
       route: "post",
       icon: <NotificationsIcon />,
+    },
+    {
+      name: "CreateQuiz",
+      route: "create-quiz",
+      icon: <CreateIcon />,
     },
   ]);
 
@@ -156,6 +163,7 @@ function DashboardPage(props) {
           <Route path="singlePost/:id" element={<Singlepost />} />
           <Route path="post/add" element={<AddProject />} />
           <Route path="post/add/:id" element={<AddProject />} />
+          <Route path="create-quiz" element={<CreateQuiz />} />
         </Routes>
       </Box>
     </Box>
