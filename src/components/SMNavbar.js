@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 
-export default function BANavbar() {
+export default function SMNavbar() {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
