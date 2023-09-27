@@ -26,6 +26,8 @@ import Singlepost from "./dashboardpages/singlePost";
 import AddProject from "./dashboardpages/addPost";
 import CreateIcon from "@mui/icons-material/Create";
 import CreateQuiz from "./dashboardpages/createQuizz";
+import QuizIcon from "@mui/icons-material/Quiz";
+import Quiz from "../pages/dashboardpages/quiz";
 
 const drawerWidth = 240;
 
@@ -52,6 +54,11 @@ function DashboardPage(props) {
       name: "CreateQuiz",
       route: "create-quiz",
       icon: <CreateIcon />,
+    },
+    {
+      name: "Quiz",
+      route: "quiz",
+      icon: <QuizIcon />,
     },
   ]);
 
@@ -164,6 +171,7 @@ function DashboardPage(props) {
           <Route path="post/add" element={<AddProject />} />
           <Route path="post/add/:id" element={<AddProject />} />
           <Route path="create-quiz" element={<CreateQuiz />} />
+          <Route path="quiz" element={<Quiz />} />
         </Routes>
       </Box>
     </Box>

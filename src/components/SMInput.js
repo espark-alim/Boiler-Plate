@@ -1,35 +1,22 @@
 import * as React from "react";
-import { Input, InputBase, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 
 export default function SMInput({
   label,
   variant,
+  name,
   placeholder,
   onChange,
-  inputstyle,
-  labelstyle,
+  sx,
   type,
 }) {
-  // const defaultInputStyle = {
-  //   border: "1px solid gray",
-  //   borderRadius: "7px 7px 7px 7px",
-  //   padding: "5px 8px",
-  //   margin: 1,
-  // };
-  const defaultLabelStyle = {
-    color: "black",
-    fontSize: "20px",
-    fontWeight: 500,
-    margin: "5px  5px",
-  };
   return (
     <>
-      <label style={labelstyle ? labelstyle : defaultLabelStyle}>{label}</label>
-      <br />
       <TextField
         placeholder={placeholder}
+        name={name}
         onChange={onChange}
-        sx={inputstyle ? inputstyle : null}
+        sx={sx ? sx : null}
         variant={variant}
         type={type}
         label={label}
