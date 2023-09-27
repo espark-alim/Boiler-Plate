@@ -1,18 +1,16 @@
 import React from "react";
 import {
   getAuth,
+  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  getRedirectResult,
-  signInWithPopup,
-  GoogleAuthProvider,
 } from "firebase/auth";
+
 import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { app } from "../config/fbConfig";
+import { app } from "../../config/fbConfig";
 
-export default function Login() {
-  const auth = getAuth(app);
+export default function Signup() {
   const [model, setModel] = useState({});
   const navigate = useNavigate();
 
@@ -21,12 +19,13 @@ export default function Login() {
     setModel({ ...model });
   };
 
-  const loginUser = (e) => {
+  const signupUser = (e) => {
     e.preventDefault();
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, model.email, model.password)
+    const auth = getAuth(app);
+
+    createUserWithEmailAndPassword(auth, model.email, model.password)
       .then((userCredential) => {
-        // login
+        // Signed in
         const user = userCredential.user;
         if (user == userCredential.user) {
           navigate(`/profile/${model.email}`, { state: model });
@@ -35,7 +34,7 @@ export default function Login() {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-
+        // ..
         console.log(errorCode);
         console.log(errorMessage);
       });
@@ -50,7 +49,7 @@ export default function Login() {
         <Paper className="p-3">
           <Box className="p-3">
             <Typography className="text-center" variant="h5">
-              Login
+              Signup
             </Typography>
           </Box>
           <Box className="p-3">
@@ -71,11 +70,11 @@ export default function Login() {
           </Box>
           <Box className="p-3">
             <Button
-              onClick={(e) => loginUser(e)}
+              onClick={(e) => signupUser(e)}
               fullWidth={true}
               variant="contained"
             >
-              Login
+              signup
             </Button>
           </Box>
         </Paper>

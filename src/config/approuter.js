@@ -6,6 +6,7 @@ import BANavbar from "../components/SMNavbar";
 import Profile from "../pages/profile";
 import Login from "../pages/login";
 import DashboardPage from "../pages/dashboard";
+import Signup from "../pages/dashboardpages/signup";
 
 export default function AppRouter() {
   return (
@@ -18,6 +19,7 @@ export default function AppRouter() {
           <Route path="services" element={<Services />} />
           <Route path="profile/:id" element={<Profile />} />
           <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
           <Route path="dashboard/*" element={<DashboardPage />} />
         </Routes>
       </BrowserRouter>
