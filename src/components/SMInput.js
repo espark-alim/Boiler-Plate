@@ -8,6 +8,7 @@ export default function SMInput({
   placeholder,
   onChange,
   sx,
+  value,
   type,
 }) {
   return (
@@ -20,6 +21,7 @@ export default function SMInput({
         variant={variant}
         type={type}
         label={label}
+        value={value}
       />
     </>
   );
